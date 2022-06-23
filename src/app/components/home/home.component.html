@@ -1,0 +1,26 @@
+<section class="bg-[#eee]">
+    
+<section class="w-[90%] m-auto">
+    <h1 class="text-center py-10">Product Listing</h1>
+
+    <div class="grid grid-cols-4 gap-5">
+        <div *ngFor="let prod of products" class="border shadow-md p-3 bg-white flex flex-col">
+            <h1 class="text-3xl font-bold ">{{prod.name}}</h1>
+            <div>
+                <img src="{{prod.imageUrl}}" alt="">
+            </div>
+            <div>
+                <p>{{prod.description}}</p>
+            </div>
+            <div class="mt-auto">
+                <a 
+                routerLink="/product/{{prod.id}}"
+                mat-raised-button color="primary"
+                >BUY NOW</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+</section>
