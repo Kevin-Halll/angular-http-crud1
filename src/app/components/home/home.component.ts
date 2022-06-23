@@ -9,7 +9,8 @@ import { ProductsService } from 'server/products.service';
 export class HomeComponent implements OnInit {
 
   products: Products[] = []
-
+  p: number = 1;
+  
   constructor(private prodService: ProductsService) { }
 
   ngOnInit(): void {

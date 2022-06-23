@@ -26,10 +26,11 @@
 <!-- </section> -->
 <section class="bg-[#eee]">
 <section class="w-[95%] m-auto">
-    <h1 class="text-center py-10" style="color: #3f51b5;">Product Listing</h1>
+    <h1 class="text-center py-10" style="color: #3f51b5;">Product Listing</h1> 
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
 <div class="grid grid-cols-4 gap-8">
     <mat-spinner *ngIf="products.length === 0"></mat-spinner>
-    <mat-card *ngFor="let product of products">
+    <mat-card *ngFor="let product of products | paginate: { itemsPerPage: 12, currentPage: p }">
         <mat-card-header>
             <mat-card-title style="color: #3f51b5;">{{product.name}}</mat-card-title>
             <mat-card-subtitle>{{product.price}} $/ {{product.quantitiy}}
