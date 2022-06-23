@@ -1,0 +1,10 @@
+.first-img{
+    filter: brightness(17%);
+}
+mat-card{
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    padding: 40px 80px;
+}
