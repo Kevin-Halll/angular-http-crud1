@@ -1,4 +1,4 @@
-<section class="bg-[#eee]">
+<!-- <section class="bg-[#eee]">
     
 <section class="w-[90%] m-auto">
     <h1 class="text-center py-10">Product Listing</h1>
@@ -21,6 +21,31 @@
         </div>
 
     </div>
+</section> -->
+
+<!-- </section> -->
+<section class="bg-[#eee]">
+<section class="w-[95%] m-auto">
+    <h1 class="text-center py-10" style="color: #3f51b5;">Product Listing</h1>
+<div class="grid grid-cols-4 gap-8">
+    <mat-spinner *ngIf="products.length === 0"></mat-spinner>
+    <mat-card *ngFor="let product of products">
+        <mat-card-header>
+            <mat-card-title style="color: #3f51b5;">{{product.name}}</mat-card-title>
+            <mat-card-subtitle>{{product.price}} $/ {{product.quantitiy}}
+            </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <p style="height: 90px;">
+                {{product.description}}
+            </p>
+            <img src="{{ product.imageUrl }}" height="200px" width="100%">
+        </mat-card-content>
+        <mat-card-actions>
+           <button mat-raised-button color="primary" routerLink="/product/{{product.id}}">View Meal</button>
+       </mat-card-actions>
+    </mat-card>
+</div>
+</section>
 </section>
 
-</section>
