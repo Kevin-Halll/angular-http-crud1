@@ -1,27 +1,11 @@
-<section>
-    <div class="bg-blue-600 text-white font-bold p-5">
-        <nav class="flex justify-between">
-            <a routerLink="/">
-                <h1>Amber Eats</h1>
-            </a>
-
-            <ul class="flex gap-5 items-center">
-                <li>
-                    <a routerLink="/" mat-button class="px-3 py-2">
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <a routerLink="/about" mat-button class="px-3 py-2">
-                        About
-                    </a>
-                </li>
-                <li>
-                    <a routerLink="/contact" mat-button class="px-3 py-2">
-                        Contact
-                    </a>
-                </li>
-            </ul>
-        </nav>
+<mat-toolbar color="primary">
+    <h1>Amber Eats</h1>
+    <div>
+      <button routerLink="/" mat-button>Home</button>
+      <button routerLink="/about" mat-button routerLinkActive="active-link">About</button>
+      <button routerLink="/contact" mat-button routerLinkActive="active-link">Contact Us</button>
     </div>
-</section>
+  </mat-toolbar>
+  
+  
+  
