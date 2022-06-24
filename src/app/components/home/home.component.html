@@ -1,10 +1,11 @@
-<section class="bg-[#eee]">
+<section class="bg-[#eee] h-full">
     
 <section class="w-[90%] m-auto">
     <h1 class="text-center py-10">Product Listing</h1>
 
     <div class="grid grid-cols-4 gap-5">
-        <div *ngFor="let prod of products" class="border shadow-md p-3 bg-white flex flex-col">
+        <div *ngFor="let prod of products | paginate : { itemsPerPage : 4, currentPage : page, totalItems : totalLength}" 
+        class="border shadow-md p-3 bg-white flex flex-col">
             <h1 class="text-3xl font-bold ">{{prod.name}}</h1>
             <div>
                 <img src="{{prod.imageUrl}}" alt="">
@@ -21,6 +22,12 @@
         </div>
 
     </div>
+
+    
+        <pagination-controls (pageChange)="page = $event"
+        class="flex justify-end py-5 bg-white items-center ml-auto w-fit mt-10 shadow-md"
+        ></pagination-controls>
+    
 </section>
 
 </section>

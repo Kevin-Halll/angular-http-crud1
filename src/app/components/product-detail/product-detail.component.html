@@ -15,10 +15,16 @@
                     {{prod.description}}
                 </p>
 
-                <div class="mt-auto">
+                <div class="mt-auto flex justify-between items-center">
                     <a routerLink="/order" mat-raised-button color="primary">
                         Order now
                     </a>
+
+                    <div>
+                        <b>
+                            {{prod.price | currency}}
+                        </b>
+                    </div>
                 </div>
             </div>
         </div>
