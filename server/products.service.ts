@@ -20,6 +20,12 @@ export class ProductsService {
     return this.http.get<Products[]>(this.apiUrl);
   }
 
+  /**
+   * HTTP Request to sort the products prior to reception.
+   * @param ascending Create a UI aspect to accept ascending or descending, preferably a checkbox, it defaults to ASC
+   * @param sort Create a ui aspect to accept either ID or Price for sorting, it defaults to ID
+   * @returns Observable
+   */
   getProductsSorted(ascending: boolean = true, sort: string = 'id') {
     return this.http.get(
       this.apiUrl +
