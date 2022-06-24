@@ -26,8 +26,8 @@ export class ProductsService {
    * @param sort Create a ui aspect to accept either ID or Price for sorting, it defaults to ID
    * @returns Observable
    */
-  getProductsSorted(ascending: boolean = true, sort: string = 'id') {
-    return this.http.get(
+  getProductsSorted(ascending: boolean = true, sort: string = 'id'):Observable<Products[]> {
+    return this.http.get<Products[]>(
       this.apiUrl +
         `products?_sort=${sort}&_order=${ascending ? 'ASC' : 'DESC'}`
     );

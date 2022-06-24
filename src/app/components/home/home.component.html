@@ -1,33 +1,50 @@
 <section class="bg-[#eee] h-full">
-    
-<section class="w-[90%] m-auto">
+  <section class="w-100 flex justify-between">
+    <label>
+      Sort By:
+      <select type="number" [(ngModel)]="Sort" (change)="product_load()">
+        <option value="id" selected>ID</option>
+        <option value="price">PRICE</option>
+      </select>
+    </label>
+    <label>
+      Ascending
+      <input type="checkbox" [(ngModel)]="Asc" (change)="product_load()" />
+    </label>
+  </section>
+  <section class="w-[90%] m-auto">
     <h1 class="text-center py-10">Product Listing</h1>
 
     <div class="grid grid-cols-4 gap-5">
-        <div *ngFor="let prod of products | paginate : { itemsPerPage : 4, currentPage : page, totalItems : totalLength}" 
-        class="border shadow-md p-3 bg-white flex flex-col">
-            <h1 class="text-3xl font-bold ">{{prod.name}}</h1>
-            <div>
-                <img src="{{prod.imageUrl}}" alt="">
-            </div>
-            <div>
-                <p>{{prod.description}}</p>
-            </div>
-            <div class="mt-auto">
-                <a 
-                routerLink="/product/{{prod.id}}"
-                mat-raised-button color="primary"
-                >BUY NOW</a>
-            </div>
+      <div
+        *ngFor="
+          let prod of products
+            | paginate
+              : { itemsPerPage: 4, currentPage: page, totalItems: totalLength }
+        "
+        class="border shadow-md p-3 bg-white flex flex-col"
+      >
+        <h1 class="text-3xl font-bold">{{ prod.name }}</h1>
+        <div>
+          <img src="{{ prod.imageUrl }}" alt="" />
         </div>
-
+        <div>
+          <p>{{ prod.description }}</p>
+        </div>
+        <div class="mt-auto">
+          <a
+            routerLink="/product/{{ prod.id }}"
+            mat-raised-button
+            color="primary"
+            >BUY NOW</a
+          >
+        </div>
+      </div>
     </div>
 
-    
-        <pagination-controls (pageChange)="page = $event"
-        class="flex justify-end py-5 bg-white items-center ml-auto w-fit mt-10 shadow-md"
-        ></pagination-controls>
-    
-</section>
-
+    <pagination-controls
+      (pageChange)="page = $event"
+      class="flex justify-end py-5 bg-white items-center ml-auto w-fit mt-10 shadow-md"
+    ></pagination-controls>
+  </section>
 </section>
