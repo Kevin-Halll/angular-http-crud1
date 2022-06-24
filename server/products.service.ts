@@ -4,20 +4,26 @@ import { Observable } from 'rxjs';
 import { Products } from './interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductsService {
-  private apiUrl: string = 'http://localhost:3000/products'
+  private apiUrl: string = 'http://localhost:3000/products';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getProducts(): Observable<Products[]> {
-    return this.http.get<Products[]>(this.apiUrl)
+    return this.http.get<Products[]>(this.apiUrl);
   }
 
   getProductsPage(page: Number): Observable<Products[]> {
     // return this.http.get<Products[]>(`${this.apiUrl}/?_page=${page}&_limit=48`)
-    return this.http.get<Products[]>(this.apiUrl)
+    return this.http.get<Products[]>(this.apiUrl);
   }
 
+  getProductsSorted(ascending: boolean = true, sort: string = 'id') {
+    return this.http.get(
+      this.apiUrl +
+        `products?_sort=${sort}&_order=${ascending ? 'ASC' : 'DESC'}`
+    );
+  }
 }
