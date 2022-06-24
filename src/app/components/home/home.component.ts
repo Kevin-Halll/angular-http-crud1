@@ -9,17 +9,30 @@ import { ProductsService } from 'server/products.service';
 export class HomeComponent implements OnInit {
 
   products: Products[] = []
-  p: number = 1;
+
+  //pagination
+  totalLength: any;
+  page: number = 1;
+  //sorting
+  asc: boolean = true;
+  sort: string = 'id';
   
   constructor(private prodService: ProductsService) { }
 
   ngOnInit(): void {
 
-    this.prodService.getProducts().subscribe( data => {
-      this.products = data
-      
-    })
-
+   this.product_load()
+    
+  }
+  product_load(){
+    this.prodService.getProductsSorted(this.asc, this.sort).subscribe((data) => {
+      this.products = data;
+      console.log(data)
+      this.totalLength = data.length;
+    });
+  }
   }
 
-}
+  
+
+

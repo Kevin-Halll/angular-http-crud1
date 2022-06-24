@@ -1,35 +1,35 @@
-<!-- <section class="bg-[#eee]">
-    
-<section class="w-[90%] m-auto">
-    <h1 class="text-center py-10">Product Listing</h1>
 
-    <div class="grid grid-cols-4 gap-5">
-        <div *ngFor="let prod of products" class="border shadow-md p-3 bg-white flex flex-col">
-            <h1 class="text-3xl font-bold ">{{prod.name}}</h1>
-            <div>
-                <img src="{{prod.imageUrl}}" alt="">
-            </div>
-            <div>
-                <p>{{prod.description}}</p>
-            </div>
-            <div class="mt-auto">
-                <a 
-                routerLink="/product/{{prod.id}}"
-                mat-raised-button color="primary"
-                >BUY NOW</a>
-            </div>
-        </div>
-
-    </div>
-</section> -->
-
-<!-- </section> -->
 <section class="bg-[#eee]">
-<section class="w-[95%] m-auto">
-    <h1 class="text-center py-10" style="color: #3f51b5;">Product Listing</h1> 
+<section class="w-[95%] m-auto"> 
+        <!-- <label>
+            Sort By:
+            <select type="number" [(ngModel)]="sort" (change)="product_load()">
+            <option value="id" selected>ID</option>
+            <option value="price">PRICE</option>
+            </select>
+        </label> -->
+
+      <mat-form-field appearance="fill" class="m-5">
+        <mat-label>Sort By</mat-label>
+        <select matNativeControl [(ngModel)]="sort" (change)="product_load()">
+          <option value="id">Id</option>
+          <option value="price">Price</option>
+        </select>
+      </mat-form-field>
+      
+        <mat-checkbox [(ngModel)]="asc" (change)="product_load()" color="primary">Ascending</mat-checkbox>
+    
+    </section>
+    <section class="w-[90%] m-auto">
+
+       
+         
+         
+
+    <h1 class="text-center pb-10" style="color: #3f51b5;">Product Listing</h1> 
 <div class="grid grid-cols-4 gap-8">
     <mat-spinner *ngIf="products.length === 0"></mat-spinner>
-    <mat-card *ngFor="let product of products | paginate: { itemsPerPage: 12, currentPage: p }">
+    <mat-card *ngFor="let product of products | paginate: { itemsPerPage: 4, currentPage: page, totalItems: totalLength }">
         <mat-card-header>
             <mat-card-title style="color: #3f51b5;">{{product.name}}</mat-card-title>
             <mat-card-subtitle>{{product.price}} $/ {{product.quantitiy}}
@@ -47,7 +47,7 @@
     </mat-card>
 </div>
 <div class="p-20 text-xl">
-<pagination-controls (pageChange)="p = $event"></pagination-controls>
+<pagination-controls (pageChange)="page = $event" ></pagination-controls>
 </div>
 </section>
 </section>

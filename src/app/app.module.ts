@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MaterialModule } from './material/material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,7 +24,7 @@ import { ContactComponent } from './components/contact/contact.component';
     NavbarComponent,
     OrderSuccessComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +32,8 @@ import { ContactComponent } from './components/contact/contact.component';
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FormsModule
   ],
   providers: [ProductsService],
   bootstrap: [AppComponent]
