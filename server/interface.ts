@@ -15,3 +15,8 @@ export interface Menu {
     imageUrl: string,
     cost: string,
 }
+
+export interface Stats {
+  menus: number,
+  products: number
+}
