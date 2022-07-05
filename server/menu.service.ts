@@ -52,6 +52,17 @@ export class MenuService {
   getMenus() {
     return this.http.get(this.apiUrl, { observe: 'response' });
   }
+  getMenusPage(page: number, ascending: boolean = true, sort: string = 'id') {
+    return this.http.get<any[]>(
+      this.apiUrl +
+        `menus?_page=${page}&_limit=48&_sort=${sort}&_order=${
+          ascending ? 'ASC' : 'DESC'
+        }`
+    );
+  }
+  getMenusPages() {
+    return this.http.get<any>(this.api + `menustats`);
+  }
   getMenu(id: number) {
     return this.http.get(this.apiUrl + `/${id}`, { observe: 'response' });
   }

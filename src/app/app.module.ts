@@ -15,6 +15,7 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import {MatPaginator} from '@angular/material/paginator';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     MaterialModule,
     HttpClientModule,
     NgxPaginationModule,
+    FormsModule
   ],
   providers: [ProductsService],
   bootstrap: [AppComponent]

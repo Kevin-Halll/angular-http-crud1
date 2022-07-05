@@ -29,7 +29,7 @@ export class ProductsService {
   getProductsSorted(ascending: boolean = true, sort: string = 'id'):Observable<Products[]> {
     return this.http.get<Products[]>(
       this.apiUrl +
-        `products?_sort=${sort}&_order=${ascending ? 'ASC' : 'DESC'}`
+        `?_sort=${sort}&_order=${ascending ? 'ASC' : 'DESC'}`
     );
   }
 }

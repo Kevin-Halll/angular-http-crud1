@@ -2,14 +2,14 @@
   <section class="w-100 flex justify-between">
     <label>
       Sort By:
-      <select type="number" [(ngModel)]="Sort" (change)="product_load()">
+      <select type="number" [(ngModel)]="sort" (change)="product_load()">
         <option value="id" selected>ID</option>
         <option value="price">PRICE</option>
       </select>
     </label>
     <label>
       Ascending
-      <input type="checkbox" [(ngModel)]="Asc" (change)="product_load()" />
+      <input type="checkbox" [(ngModel)]="asc" (change)="product_load()" />
     </label>
   </section>
   <section class="w-[90%] m-auto">

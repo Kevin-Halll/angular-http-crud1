@@ -1,6 +1,11 @@
 const { faker } = require("@faker-js/faker");
 
-let database = { products: [], menus: [], stats: {products: 0, menus: 0} };
+let database = {
+  products: [],
+  menus: [],
+  productstats: { val: 0 },
+  menustats: { val: 0 },
+};
 
 for (let i = 1; i <= 52; i++) {
   database.products.push({
@@ -20,7 +25,7 @@ for (let i = 1; i <= 52; i++) {
     cost: faker.commerce.price(1, 1000, 2, "$"),
   });
 }
-database.stats.menus = 52;
-database.stats.products = 52;
+database.menustats.val = 52;
+database.productstats.val = 52;
 
 console.log(JSON.stringify(database, undefined, 2));
